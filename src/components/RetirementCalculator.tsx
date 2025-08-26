@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { Calculator, TrendingUp, DollarSign, Calendar } from 'lucide-react';
+import { Brain, Sparkles, Zap, Bot, TrendingUp } from 'lucide-react';
 import { RetirementChart } from './RetirementChart';
 import { RetirementTable } from './RetirementTable';
 import { RetirementSummary } from './RetirementSummary';
@@ -28,20 +28,27 @@ export interface CalculatorInputs {
 
 export const RetirementCalculator = () => {
   const [inputs, setInputs] = useState<CalculatorInputs>({
-    initialAmount: 10000,
-    monthlyContribution: 1000,
-    years: 30,
-    annualInterestRate: 10.5,
-    inflationRate: 4.5
+    initialAmount: 0,
+    monthlyContribution: 0,
+    years: 0,
+    annualInterestRate: 0,
+    inflationRate: 0
   });
 
+  const [hasCalculated, setHasCalculated] = useState(false);
+
   const calculationResults = useMemo(() => {
+    // Only calculate if we have valid inputs and user has attempted calculation
+    if (!hasCalculated || !inputs.monthlyContribution || !inputs.years || !inputs.annualInterestRate) {
+      return [];
+    }
+
     const results: RetirementData[] = [];
     const monthlyRate = inputs.annualInterestRate / 100 / 12;
     const monthlyInflationRate = inputs.inflationRate / 100 / 12;
     
-    let currentBalance = inputs.initialAmount;
-    let totalContributions = inputs.initialAmount;
+    let currentBalance = inputs.initialAmount || 0;
+    let totalContributions = inputs.initialAmount || 0;
     
     for (let month = 1; month <= inputs.years * 12; month++) {
       const monthlyInterest = currentBalance * monthlyRate;
@@ -62,126 +69,196 @@ export const RetirementCalculator = () => {
     }
     
     return results;
-  }, [inputs]);
+  }, [inputs, hasCalculated]);
 
   const updateInput = (field: keyof CalculatorInputs, value: number) => {
     setInputs(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleCalculate = () => {
+    if (inputs.monthlyContribution && inputs.years && inputs.annualInterestRate) {
+      setHasCalculated(true);
+    }
+  };
+
+  const isFormValid = inputs.monthlyContribution > 0 && inputs.years > 0 && inputs.annualInterestRate > 0;
+
   return (
     <div className="space-y-8">
       {/* Input Form */}
-      <Card className="shadow-card bg-gradient-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Calculator className="h-5 w-5 text-primary" />
-            Dados do Planejamento
+      <Card className="shadow-card bg-gradient-card animate-fade-in">
+        <CardHeader className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-neural animate-neural-flow opacity-30"></div>
+          <CardTitle className="flex items-center gap-3 relative z-10">
+            <div className="relative">
+              <Brain className="h-6 w-6 text-primary animate-ai-pulse" />
+              <Sparkles className="h-3 w-3 text-accent-ai absolute -top-1 -right-1" />
+            </div>
+            Planejamento Inteligente
           </CardTitle>
-          <CardDescription>
-            Insira suas informações para calcular sua aposentadoria
+          <CardDescription className="relative z-10">
+            Nossa IA analisará seus dados para criar o melhor plano de aposentadoria
           </CardDescription>
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="initial">Aporte Inicial (R$)</Label>
+            <Label htmlFor="initial" className="flex items-center gap-2">
+              <Zap className="h-4 w-4 text-primary" />
+              Aporte Inicial (R$)
+            </Label>
             <Input
               id="initial"
               type="number"
-              value={inputs.initialAmount}
+              placeholder="Ex: 10.000"
+              value={inputs.initialAmount || ''}
               onChange={(e) => updateInput('initialAmount', Number(e.target.value))}
-              className="text-right"
+              className="text-right transition-all duration-300 focus:shadow-glow"
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="monthly">Aporte Mensal (R$)</Label>
+            <Label htmlFor="monthly" className="flex items-center gap-2 text-primary font-medium">
+              <Bot className="h-4 w-4" />
+              Aporte Mensal (R$) *
+            </Label>
             <Input
               id="monthly"
               type="number"
-              value={inputs.monthlyContribution}
+              placeholder="Ex: 1.000"
+              value={inputs.monthlyContribution || ''}
               onChange={(e) => updateInput('monthlyContribution', Number(e.target.value))}
-              className="text-right"
+              className="text-right transition-all duration-300 focus:shadow-glow border-primary/30"
+              required
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="years">Período (anos)</Label>
+            <Label htmlFor="years" className="flex items-center gap-2 text-primary font-medium">
+              <TrendingUp className="h-4 w-4" />
+              Período (anos) *
+            </Label>
             <Input
               id="years"
               type="number"
-              value={inputs.years}
+              placeholder="Ex: 30"
+              value={inputs.years || ''}
               onChange={(e) => updateInput('years', Number(e.target.value))}
-              className="text-right"
+              className="text-right transition-all duration-300 focus:shadow-glow border-primary/30"
+              required
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="interest">Taxa de Juros (% a.a.)</Label>
+            <Label htmlFor="interest" className="flex items-center gap-2 text-primary font-medium">
+              <Sparkles className="h-4 w-4" />
+              Taxa de Juros (% a.a.) *
+            </Label>
             <Input
               id="interest"
               type="number"
               step="0.1"
-              value={inputs.annualInterestRate}
+              placeholder="Ex: 10.5"
+              value={inputs.annualInterestRate || ''}
               onChange={(e) => updateInput('annualInterestRate', Number(e.target.value))}
-              className="text-right"
+              className="text-right transition-all duration-300 focus:shadow-glow border-primary/30"
+              required
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="inflation">Inflação (% a.a.)</Label>
+            <Label htmlFor="inflation" className="flex items-center gap-2">
+              <Brain className="h-4 w-4 text-secondary" />
+              Inflação (% a.a.)
+            </Label>
             <Input
               id="inflation"
               type="number"
               step="0.1"
-              value={inputs.inflationRate}
+              placeholder="Ex: 4.5"
+              value={inputs.inflationRate || ''}
               onChange={(e) => updateInput('inflationRate', Number(e.target.value))}
-              className="text-right"
+              className="text-right transition-all duration-300 focus:shadow-glow"
             />
           </div>
           
           <div className="flex items-end">
             <Button 
-              className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300" 
-              onClick={() => {
-                // Trigger recalculation by updating a key or state
-                window.dispatchEvent(new CustomEvent('recalculate-retirement'));
-              }}
+              className={`w-full transition-all duration-300 ${
+                isFormValid 
+                  ? 'bg-gradient-ai hover:shadow-ai-glow animate-ai-pulse' 
+                  : 'bg-muted text-muted-foreground cursor-not-allowed'
+              }`}
+              onClick={handleCalculate}
+              disabled={!isFormValid}
             >
-              <TrendingUp className="h-4 w-4 mr-2" />
-              Recalcular
+              <Bot className="h-4 w-4 mr-2" />
+              {hasCalculated ? 'Recalcular' : 'Calcular com IA'}
             </Button>
           </div>
         </CardContent>
+        {!isFormValid && (
+          <div className="px-6 pb-4">
+            <p className="text-sm text-muted-foreground">
+              * Campos obrigatórios para análise da IA
+            </p>
+          </div>
+        )}
       </Card>
 
-      {/* Results Summary */}
-      <RetirementSummary data={calculationResults} inputs={inputs} />
+      {/* Results - Only show if calculated */}
+      {hasCalculated && calculationResults.length > 0 && (
+        <div className="space-y-8 animate-fade-in">
+          {/* Results Summary */}
+          <RetirementSummary data={calculationResults} inputs={inputs} />
 
-      {/* Chart */}
-      <Card className="shadow-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-secondary" />
-            Evolução do Patrimônio
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <RetirementChart data={calculationResults} />
-        </CardContent>
-      </Card>
+          {/* Chart */}
+          <Card className="shadow-card animate-scale-in">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-secondary animate-ai-pulse" />
+                Evolução Patrimonial Inteligente
+                <Sparkles className="h-4 w-4 text-accent-ai ml-auto" />
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <RetirementChart data={calculationResults} />
+            </CardContent>
+          </Card>
 
-      {/* Detailed Table */}
-      <Card className="shadow-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Calendar className="h-5 w-5 text-primary" />
-            Detalhamento por Período
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <RetirementTable data={calculationResults} />
-        </CardContent>
-      </Card>
+          {/* Detailed Table */}
+          <Card className="shadow-card animate-slide-in-right">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Brain className="h-5 w-5 text-primary" />
+                Análise Detalhada por Período
+                <Bot className="h-4 w-4 text-accent-ai ml-auto" />
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <RetirementTable data={calculationResults} />
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* Empty State - Show when no calculation has been made */}
+      {!hasCalculated && (
+        <Card className="shadow-card bg-gradient-hero animate-fade-in">
+          <CardContent className="text-center py-12">
+            <div className="relative mb-6">
+              <Brain className="h-16 w-16 text-primary mx-auto animate-ai-pulse" />
+              <Sparkles className="h-6 w-6 text-accent-ai absolute top-0 right-1/2 transform translate-x-8" />
+            </div>
+            <h3 className="text-2xl font-bold text-primary mb-4">
+              IA Pronta para Calcular
+            </h3>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Preencha os campos obrigatórios acima e nossa inteligência artificial 
+              criará o plano de aposentadoria perfeito para você.
+            </p>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 };

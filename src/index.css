@@ -8,13 +8,18 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Brand Colors - Financial Growth Theme */
-    --primary: 217 91% 55%; /* Rich Blue */
+    /* AI Theme - Intelligent Planning Colors */
+    --primary: 259 94% 51%; /* AI Purple */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 217 91% 65%;
+    --primary-glow: 259 94% 65%;
+    --primary-dark: 259 94% 35%;
     
-    --secondary: 158 64% 52%; /* Financial Green */
+    --secondary: 198 93% 60%; /* Cyber Blue */
     --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 198 93% 75%;
+    
+    --accent-ai: 285 100% 80%; /* Neon Purple */
+    --accent-ai-foreground: 259 94% 15%;
     
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
@@ -29,32 +34,36 @@ All colors MUST be HSL.
     --card: 0 0% 100%;
     --card-foreground: 222 84% 5%;
     
-    --muted: 210 40% 98%;
-    --muted-foreground: 215 20% 45%;
+    --muted: 259 20% 98%;
+    --muted-foreground: 259 10% 45%;
     
-    --accent: 217 12% 97%;
+    --accent: 259 20% 97%;
     --accent-foreground: 222 84% 5%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 55%;
+    --border: 259 15% 91%;
+    --input: 259 15% 96%;
+    --ring: 259 94% 51%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 55%), hsl(158 64% 52%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(217 12% 97%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 55% / 0.1), hsl(158 64% 52% / 0.1));
+    /* AI Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(259 94% 51%), hsl(198 93% 60%));
+    --gradient-ai: linear-gradient(135deg, hsl(259 94% 51%), hsl(285 100% 80%), hsl(198 93% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(259 20% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(259 94% 51% / 0.05), hsl(198 93% 60% / 0.05));
+    --gradient-neural: linear-gradient(45deg, hsl(259 94% 51% / 0.1), transparent, hsl(198 93% 60% / 0.1));
     
-    /* Shadows */
-    --shadow-card: 0 4px 6px -1px hsl(220 13% 91% / 0.1), 0 2px 4px -1px hsl(220 13% 91% / 0.06);
-    --shadow-elevated: 0 20px 25px -5px hsl(220 13% 91% / 0.1), 0 10px 10px -5px hsl(220 13% 91% / 0.04);
-    --shadow-glow: 0 0 20px hsl(217 91% 55% / 0.15);
+    /* AI Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(259 15% 91% / 0.1), 0 2px 4px -1px hsl(259 15% 91% / 0.06);
+    --shadow-elevated: 0 20px 25px -5px hsl(259 15% 91% / 0.1), 0 10px 10px -5px hsl(259 15% 91% / 0.04);
+    --shadow-glow: 0 0 30px hsl(259 94% 51% / 0.2);
+    --shadow-ai-glow: 0 0 40px hsl(285 100% 80% / 0.3), 0 0 60px hsl(198 93% 60% / 0.2);
     
-    /* Animations */
+    /* AI Animations */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-ai: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --radius: 0.75rem;
 

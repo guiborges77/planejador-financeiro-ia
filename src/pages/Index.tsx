@@ -1,5 +1,6 @@
 import { HeroSection } from '@/components/HeroSection';
 import { RetirementCalculator } from '@/components/RetirementCalculator';
+import { Brain, Sparkles } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -12,12 +13,14 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Calculadora de Aposentadoria
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 flex items-center justify-center gap-3">
+                <Brain className="h-8 w-8 text-primary animate-ai-pulse" />
+                Calculadora IA de Aposentadoria
+                <Sparkles className="h-6 w-6 text-accent-ai" />
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Simule diferentes cenários e veja como seus investimentos podem crescer
-                com o poder dos juros compostos ao longo do tempo.
+                Nossa inteligência artificial analisa cenários complexos e simula 
+                como seus investimentos podem crescer exponencialmente ao longo do tempo.
               </p>
             </div>
             

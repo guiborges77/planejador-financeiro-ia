@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Calculator, Target } from 'lucide-react';
+import { Brain, Bot, Sparkles, Zap, TrendingUp } from 'lucide-react';
 import heroImage from '@/assets/hero-finance.jpg';
 
 export const HeroSection = () => {
@@ -11,86 +11,101 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-hero">
-      <div className="container mx-auto px-4 py-16 lg:py-24">
+    <section className="relative bg-gradient-hero overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-neural animate-neural-flow opacity-20"></div>
+      <div className="container mx-auto px-4 py-16 lg:py-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
+              <div className="flex items-center gap-2 mb-4">
+                <Brain className="h-8 w-8 text-primary animate-ai-pulse" />
+                <span className="text-primary font-semibold">Planejamento com IA</span>
+                <Sparkles className="h-5 w-5 text-accent-ai" />
+              </div>
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Planeje sua
-                <span className="block bg-gradient-primary bg-clip-text text-transparent">
+                Sua
+                <span className="block bg-gradient-ai bg-clip-text text-transparent">
                   Aposentadoria
                 </span>
-                dos sonhos
+                Inteligente
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Descubra o poder dos juros compostos e veja como seus investimentos 
-                podem crescer ao longo do tempo. Simule diferentes cenários e 
-                tome decisões financeiras mais inteligentes.
+                Nossa IA analisa cenários complexos e revela como seus investimentos 
+                podem crescer exponencialmente. Planeje com inteligência artificial 
+                e tome decisões financeiras baseadas em dados.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:shadow-glow transition-all duration-300"
+                className="bg-gradient-ai hover:shadow-ai-glow transition-all duration-300 animate-ai-pulse"
                 onClick={scrollToCalculator}
               >
-                <Calculator className="h-5 w-5 mr-2" />
-                Começar Simulação
+                <Bot className="h-5 w-5 mr-2" />
+                Iniciar Análise IA
               </Button>
-              <Button size="lg" variant="outline">
-                <TrendingUp className="h-5 w-5 mr-2" />
-                Saiba Mais
+              <Button size="lg" variant="outline" className="hover:shadow-glow transition-all duration-300">
+                <Brain className="h-5 w-5 mr-2" />
+                Como Funciona
               </Button>
             </div>
 
-            {/* Stats */}
+            {/* AI Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">10.5%</div>
-                <div className="text-sm text-muted-foreground">Taxa média CDI</div>
+              <div className="text-center group hover:scale-105 transition-transform">
+                <div className="text-2xl font-bold text-primary flex items-center justify-center gap-1">
+                  <Zap className="h-5 w-5" />
+                  10.5%
+                </div>
+                <div className="text-sm text-muted-foreground">Taxa otimizada IA</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-secondary">30 anos</div>
-                <div className="text-sm text-muted-foreground">Período ideal</div>
+              <div className="text-center group hover:scale-105 transition-transform">
+                <div className="text-2xl font-bold text-secondary flex items-center justify-center gap-1">
+                  <Bot className="h-5 w-5" />
+                  30 anos
+                </div>
+                <div className="text-sm text-muted-foreground">Análise preditiva</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">5.2x</div>
-                <div className="text-sm text-muted-foreground">Multiplicação média</div>
+              <div className="text-center group hover:scale-105 transition-transform">
+                <div className="text-2xl font-bold text-primary flex items-center justify-center gap-1">
+                  <Sparkles className="h-5 w-5" />
+                  5.2x
+                </div>
+                <div className="text-sm text-muted-foreground">Multiplicação IA</div>
               </div>
             </div>
           </div>
 
           {/* Hero Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-elevated">
+          <div className="relative animate-scale-in">
+            <div className="relative rounded-2xl overflow-hidden shadow-ai-glow">
               <img 
                 src={heroImage} 
-                alt="Planejamento de aposentadoria"
+                alt="Planejamento de aposentadoria com IA"
                 className="w-full h-auto"
               />
-              <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
+              <div className="absolute inset-0 bg-gradient-ai opacity-10"></div>
             </div>
             
-            {/* Floating Cards */}
-            <div className="absolute -top-6 -left-6 bg-card rounded-xl p-4 shadow-card border">
+            {/* Floating AI Cards */}
+            <div className="absolute -top-6 -left-6 bg-card rounded-xl p-4 shadow-card border animate-ai-pulse">
               <div className="flex items-center gap-2">
-                <Target className="h-5 w-5 text-secondary" />
+                <Brain className="h-5 w-5 text-primary" />
                 <div>
-                  <div className="font-semibold text-sm">Meta: R$ 1M</div>
-                  <div className="text-xs text-muted-foreground">Em 25 anos</div>
+                  <div className="font-semibold text-sm">IA Calculando</div>
+                  <div className="text-xs text-muted-foreground">Meta: R$ 1M</div>
                 </div>
               </div>
             </div>
             
-            <div className="absolute -bottom-6 -right-6 bg-card rounded-xl p-4 shadow-card border">
+            <div className="absolute -bottom-6 -right-6 bg-card rounded-xl p-4 shadow-card border animate-ai-pulse">
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-primary" />
+                <Sparkles className="h-5 w-5 text-accent-ai" />
                 <div>
                   <div className="font-semibold text-sm">+847%</div>
-                  <div className="text-xs text-muted-foreground">Crescimento</div>
+                  <div className="text-xs text-muted-foreground">Crescimento IA</div>
                 </div>
               </div>
             </div>
