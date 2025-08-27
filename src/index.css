@@ -8,18 +8,18 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* AI Theme - Intelligent Planning Colors */
-    --primary: 259 94% 51%; /* AI Purple */
+    /* Wealth & Intelligence Theme */
+    --primary: 160 84% 39%; /* Emerald Green */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 259 94% 65%;
-    --primary-dark: 259 94% 35%;
+    --primary-glow: 160 84% 55%;
+    --primary-dark: 160 84% 25%;
     
-    --secondary: 198 93% 60%; /* Cyber Blue */
+    --secondary: 217 91% 60%; /* Sapphire Blue */
     --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 198 93% 75%;
+    --secondary-glow: 217 91% 75%;
     
-    --accent-ai: 285 100% 80%; /* Neon Purple */
-    --accent-ai-foreground: 259 94% 15%;
+    --accent-ai: 45 93% 58%; /* Golden Amber */
+    --accent-ai-foreground: 160 84% 15%;
     
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
@@ -34,31 +34,31 @@ All colors MUST be HSL.
     --card: 0 0% 100%;
     --card-foreground: 222 84% 5%;
     
-    --muted: 259 20% 98%;
-    --muted-foreground: 259 10% 45%;
+    --muted: 160 20% 98%;
+    --muted-foreground: 160 15% 45%;
     
-    --accent: 259 20% 97%;
+    --accent: 160 20% 97%;
     --accent-foreground: 222 84% 5%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 259 15% 91%;
-    --input: 259 15% 96%;
-    --ring: 259 94% 51%;
+    --border: 160 15% 91%;
+    --input: 160 15% 96%;
+    --ring: 160 84% 39%;
     
-    /* AI Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(259 94% 51%), hsl(198 93% 60%));
-    --gradient-ai: linear-gradient(135deg, hsl(259 94% 51%), hsl(285 100% 80%), hsl(198 93% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(259 20% 97%));
-    --gradient-hero: linear-gradient(135deg, hsl(259 94% 51% / 0.05), hsl(198 93% 60% / 0.05));
-    --gradient-neural: linear-gradient(45deg, hsl(259 94% 51% / 0.1), transparent, hsl(198 93% 60% / 0.1));
+    /* Wealth & Intelligence Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(217 91% 60%));
+    --gradient-ai: linear-gradient(135deg, hsl(160 84% 39%), hsl(45 93% 58%), hsl(217 91% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(160 20% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(160 84% 39% / 0.05), hsl(217 91% 60% / 0.05));
+    --gradient-neural: linear-gradient(45deg, hsl(160 84% 39% / 0.1), transparent, hsl(217 91% 60% / 0.1));
     
-    /* AI Shadows */
-    --shadow-card: 0 4px 6px -1px hsl(259 15% 91% / 0.1), 0 2px 4px -1px hsl(259 15% 91% / 0.06);
-    --shadow-elevated: 0 20px 25px -5px hsl(259 15% 91% / 0.1), 0 10px 10px -5px hsl(259 15% 91% / 0.04);
-    --shadow-glow: 0 0 30px hsl(259 94% 51% / 0.2);
-    --shadow-ai-glow: 0 0 40px hsl(285 100% 80% / 0.3), 0 0 60px hsl(198 93% 60% / 0.2);
+    /* Wealth & Intelligence Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(160 15% 91% / 0.1), 0 2px 4px -1px hsl(160 15% 91% / 0.06);
+    --shadow-elevated: 0 20px 25px -5px hsl(160 15% 91% / 0.1), 0 10px 10px -5px hsl(160 15% 91% / 0.04);
+    --shadow-glow: 0 0 30px hsl(160 84% 39% / 0.2);
+    --shadow-ai-glow: 0 0 40px hsl(45 93% 58% / 0.3), 0 0 60px hsl(217 91% 60% / 0.2);
     
     /* AI Animations */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
