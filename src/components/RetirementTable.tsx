@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { RetirementData } from './RetirementCalculator';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { formatCurrency } from '@/lib/formatters';
 
 interface RetirementTableProps {
   data: RetirementData[];
@@ -11,15 +12,6 @@ interface RetirementTableProps {
 
 export const RetirementTable = ({ data }: RetirementTableProps) => {
   const [showAllData, setShowAllData] = useState(false);
-  
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
 
   // Show yearly data or first 12 months if showAllData is false
   const displayData = showAllData 

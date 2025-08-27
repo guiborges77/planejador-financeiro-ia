@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Brain, Sparkles, Bot, Zap, TrendingUp } from 'lucide-react';
 import { RetirementData, CalculatorInputs } from './RetirementCalculator';
+import { formatCurrency } from '@/lib/formatters';
 
 interface RetirementSummaryProps {
   data: RetirementData[];
@@ -12,15 +13,6 @@ export const RetirementSummary = ({ data, inputs }: RetirementSummaryProps) => {
 
   const finalData = data[data.length - 1];
   const totalInterest = finalData.totalBalance - finalData.totalContributions;
-  
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
 
   const summaryCards = [
     {
@@ -90,10 +82,9 @@ export const RetirementSummary = ({ data, inputs }: RetirementSummaryProps) => {
       {/* AI Performance Insights */}
       <Card className="shadow-card bg-gradient-hero border-l-4 border-l-primary animate-slide-in-right">
         <CardHeader>
-          <CardTitle className="text-primary flex items-center gap-2">
+          <CardTitle className="text-primary flex items-center gap-2 font-space">
             <Brain className="h-5 w-5 animate-ai-pulse" />
-            🤖 Insights da Inteligência Artificial
-            <Sparkles className="h-4 w-4 text-accent-ai" />
+            Insights da IA
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
