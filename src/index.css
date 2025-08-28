@@ -8,57 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Wealth & Intelligence Theme */
-    --primary: 160 84% 39%; /* Emerald Green */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 160 84% 55%;
-    --primary-dark: 160 84% 25%;
+    /* Dark AI Intelligence Theme */
+    --primary: 200 100% 70%; /* Bright Cyan */
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 200 100% 80%;
+    --primary-dark: 200 100% 50%;
     
-    --secondary: 217 91% 60%; /* Sapphire Blue */
-    --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 217 91% 75%;
+    --secondary: 270 95% 75%; /* Electric Purple */
+    --secondary-foreground: 0 0% 0%;
+    --secondary-glow: 270 95% 85%;
     
-    --accent-ai: 45 93% 58%; /* Golden Amber */
-    --accent-ai-foreground: 160 84% 15%;
+    --accent-ai: 50 100% 75%; /* Electric Gold */
+    --accent-ai-foreground: 0 0% 0%;
     
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 100%;
+    --success: 120 100% 60%;
+    --success-foreground: 0 0% 0%;
     
-    --warning: 48 96% 53%;
-    --warning-foreground: 222 84% 5%;
+    --warning: 40 100% 70%;
+    --warning-foreground: 0 0% 0%;
     
-    /* UI Colors */
-    --background: 0 0% 100%;
-    --foreground: 222 84% 5%;
+    /* UI Colors - Dark Theme */
+    --background: 220 25% 8%; /* Deep Dark Blue */
+    --foreground: 0 0% 95%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
+    --card: 220 20% 12%; /* Slightly lighter dark */
+    --card-foreground: 0 0% 95%;
     
-    --muted: 160 20% 98%;
-    --muted-foreground: 160 15% 45%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 0 0% 65%;
     
-    --accent: 160 20% 97%;
-    --accent-foreground: 222 84% 5%;
+    --accent: 220 20% 18%;
+    --accent-foreground: 0 0% 95%;
     
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 0% 95%;
     
-    --border: 160 15% 91%;
-    --input: 160 15% 96%;
-    --ring: 160 84% 39%;
+    --border: 220 15% 20%;
+    --input: 220 15% 16%;
+    --ring: 200 100% 70%;
     
-    /* Wealth & Intelligence Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(217 91% 60%));
-    --gradient-ai: linear-gradient(135deg, hsl(160 84% 39%), hsl(45 93% 58%), hsl(217 91% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(160 20% 97%));
-    --gradient-hero: linear-gradient(135deg, hsl(160 84% 39% / 0.05), hsl(217 91% 60% / 0.05));
-    --gradient-neural: linear-gradient(45deg, hsl(160 84% 39% / 0.1), transparent, hsl(217 91% 60% / 0.1));
+    /* Dark AI Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 70%), hsl(270 95% 75%));
+    --gradient-ai: linear-gradient(135deg, hsl(200 100% 70%), hsl(50 100% 75%), hsl(270 95% 75%));
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 12%), hsl(220 15% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 100% 70% / 0.1), hsl(270 95% 75% / 0.1));
+    --gradient-neural: linear-gradient(45deg, hsl(200 100% 70% / 0.15), transparent, hsl(270 95% 75% / 0.15));
     
-    /* Wealth & Intelligence Shadows */
-    --shadow-card: 0 4px 6px -1px hsl(160 15% 91% / 0.1), 0 2px 4px -1px hsl(160 15% 91% / 0.06);
-    --shadow-elevated: 0 20px 25px -5px hsl(160 15% 91% / 0.1), 0 10px 10px -5px hsl(160 15% 91% / 0.04);
-    --shadow-glow: 0 0 30px hsl(160 84% 39% / 0.2);
-    --shadow-ai-glow: 0 0 40px hsl(45 93% 58% / 0.3), 0 0 60px hsl(217 91% 60% / 0.2);
+    /* Dark AI Shadows */
+    --shadow-card: 0 4px 20px -2px hsl(200 100% 70% / 0.1), 0 2px 8px -1px hsl(270 95% 75% / 0.05);
+    --shadow-elevated: 0 20px 40px -10px hsl(200 100% 70% / 0.15), 0 10px 20px -5px hsl(270 95% 75% / 0.1);
+    --shadow-glow: 0 0 40px hsl(200 100% 70% / 0.3);
+    --shadow-ai-glow: 0 0 60px hsl(50 100% 75% / 0.4), 0 0 80px hsl(200 100% 70% / 0.3);
     
     /* AI Animations */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
