@@ -9,14 +9,15 @@ const Index = () => {
       <HeroSection />
       
       {/* Calculator Section */}
-      <section id="calculator" className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section id="calculator" className="py-16 bg-muted/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-neural animate-neural-flow opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 flex items-center justify-center gap-3">
-                <Brain className="h-8 w-8 text-primary animate-ai-pulse" />
+              <h2 className="text-3xl lg:text-4xl font-bold text-gradient mb-4 flex items-center justify-center gap-3 font-space">
+                <Brain className="h-8 w-8 text-primary animate-glow-pulse" />
                 Calculadora IA de Aposentadoria
-                <Sparkles className="h-6 w-6 text-accent-ai" />
+                <Sparkles className="h-6 w-6 text-accent-ai animate-float" />
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Nossa inteligência artificial analisa cenários complexos e simula 
@@ -30,8 +31,9 @@ const Index = () => {
       </section>
       
       {/* Footer */}
-      <footer className="py-12 bg-card border-t">
-        <div className="container mx-auto px-4 text-center">
+      <footer className="py-12 bg-card border-t border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-neural animate-neural-flow opacity-5"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <p className="text-muted-foreground">
             © 2024 Planejamento de Aposentadoria. Desenvolvido com ❤️ para seu futuro financeiro.
           </p>

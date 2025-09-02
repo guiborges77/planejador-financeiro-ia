@@ -87,17 +87,17 @@ export const RetirementCalculator = () => {
   return (
     <div className="space-y-8">
       {/* Input Form */}
-      <Card className="shadow-card bg-gradient-card animate-fade-in">
+      <Card className="shadow-card bg-gradient-card animate-fade-in glass-effect">
         <CardHeader className="relative overflow-hidden pb-4">
-          <div className="absolute inset-0 bg-gradient-neural animate-neural-flow opacity-20"></div>
-          <CardTitle className="flex items-center gap-3 relative z-10 font-space">
+          <div className="absolute inset-0 bg-gradient-neural animate-neural-flow opacity-30"></div>
+          <CardTitle className="flex items-center gap-3 relative z-10 font-space text-gradient">
             <div className="relative">
-              <Brain className="h-6 w-6 text-primary animate-ai-pulse" />
-              <Sparkles className="h-3 w-3 text-accent-ai absolute -top-1 -right-1" />
+              <Brain className="h-6 w-6 text-primary animate-glow-pulse" />
+              <Sparkles className="h-3 w-3 text-accent-ai absolute -top-1 -right-1 animate-float" />
             </div>
             Calculadora Inteligente
           </CardTitle>
-          <CardDescription className="relative z-10">
+          <CardDescription className="relative z-10 text-muted-foreground">
             Digite seus dados para análise de aposentadoria com IA
           </CardDescription>
         </CardHeader>
@@ -113,7 +113,7 @@ export const RetirementCalculator = () => {
               placeholder="R$ 5.000,00"
               value={inputs.initialAmount || ''}
               onChange={(e) => updateInput('initialAmount', Number(e.target.value))}
-              className="text-right h-11 transition-all duration-200 hover:border-primary/50 focus:border-primary focus:shadow-glow"
+              className="text-right h-11 transition-all duration-300 hover:border-primary/50 focus:border-primary focus:shadow-glow glass-effect"
             />
           </div>
           
@@ -128,7 +128,7 @@ export const RetirementCalculator = () => {
               placeholder="R$ 1.500,00"
               value={inputs.monthlyContribution || ''}
               onChange={(e) => updateInput('monthlyContribution', Number(e.target.value))}
-              className="text-right h-11 border-primary/30 transition-all duration-200 hover:border-primary/60 focus:border-primary focus:shadow-glow"
+              className="text-right h-11 border-primary/30 transition-all duration-300 hover:border-primary/60 focus:border-primary focus:shadow-glow glass-effect"
               required
             />
           </div>
@@ -144,7 +144,7 @@ export const RetirementCalculator = () => {
               placeholder="25 anos"
               value={inputs.years || ''}
               onChange={(e) => updateInput('years', Number(e.target.value))}
-              className="text-right h-11 border-primary/30 transition-all duration-200 hover:border-primary/60 focus:border-primary focus:shadow-glow"
+              className="text-right h-11 border-primary/30 transition-all duration-300 hover:border-primary/60 focus:border-primary focus:shadow-glow glass-effect"
               required
             />
           </div>
@@ -161,7 +161,7 @@ export const RetirementCalculator = () => {
               placeholder="12,0%"
               value={inputs.annualInterestRate || ''}
               onChange={(e) => updateInput('annualInterestRate', Number(e.target.value))}
-              className="text-right h-11 border-primary/30 transition-all duration-200 hover:border-primary/60 focus:border-primary focus:shadow-glow"
+              className="text-right h-11 border-primary/30 transition-all duration-300 hover:border-primary/60 focus:border-primary focus:shadow-glow glass-effect"
               required
             />
           </div>
@@ -178,17 +178,18 @@ export const RetirementCalculator = () => {
               placeholder="4,5%"
               value={inputs.inflationRate || ''}
               onChange={(e) => updateInput('inflationRate', Number(e.target.value))}
-              className="text-right h-11 transition-all duration-200 hover:border-primary/50 focus:border-primary focus:shadow-glow"
+              className="text-right h-11 transition-all duration-300 hover:border-primary/50 focus:border-primary focus:shadow-glow glass-effect"
             />
           </div>
           
           <div className="flex items-end">
             <Button 
-              className={`w-full h-11 font-semibold transition-all duration-300 ${
+              className={`w-full h-11 font-semibold transition-all duration-500 ${
                 isFormValid 
-                  ? 'bg-gradient-ai hover:shadow-ai-glow animate-ai-pulse font-space' 
+                  ? 'bg-gradient-ai hover:shadow-ai-glow hover:scale-105 animate-glow-pulse font-space' 
                   : 'bg-muted text-muted-foreground cursor-not-allowed'
               }`}
+              variant={isFormValid ? "ai" : "ghost"}
               onClick={handleCalculate}
               disabled={!isFormValid}
             >
@@ -218,10 +219,10 @@ export const RetirementCalculator = () => {
           <RetirementSummary data={calculationResults} inputs={inputs} />
 
           {/* Chart */}
-          <Card className="shadow-card animate-scale-in">
+          <Card className="shadow-elevated animate-scale-in glass-effect">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 font-space">
-                <TrendingUp className="h-5 w-5 text-secondary animate-ai-pulse" />
+              <CardTitle className="flex items-center gap-2 font-space text-gradient">
+                <TrendingUp className="h-5 w-5 text-secondary animate-glow-pulse" />
                 Evolução Patrimonial
               </CardTitle>
             </CardHeader>
@@ -231,10 +232,10 @@ export const RetirementCalculator = () => {
           </Card>
 
           {/* Detailed Table */}
-          <Card className="shadow-card animate-slide-in-right">
+          <Card className="shadow-elevated animate-slide-in-right glass-effect">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 font-space">
-                <Brain className="h-5 w-5 text-primary" />
+              <CardTitle className="flex items-center gap-2 font-space text-gradient">
+                <Brain className="h-5 w-5 text-primary animate-glow-pulse" />
                 Análise Detalhada
               </CardTitle>
             </CardHeader>
@@ -247,13 +248,13 @@ export const RetirementCalculator = () => {
 
       {/* Empty State - Show when no calculation has been made */}
       {!hasCalculated && (
-        <Card className="shadow-card bg-gradient-hero animate-fade-in">
+        <Card className="shadow-elevated bg-gradient-hero animate-fade-in glass-effect">
           <CardContent className="text-center py-12">
             <div className="relative mb-6">
-              <Brain className="h-16 w-16 text-primary mx-auto animate-ai-pulse" />
-              <Sparkles className="h-6 w-6 text-accent-ai absolute top-0 right-1/2 transform translate-x-8" />
+              <Brain className="h-16 w-16 text-primary mx-auto animate-float" />
+              <Sparkles className="h-6 w-6 text-accent-ai absolute top-0 right-1/2 transform translate-x-8 animate-glow-pulse" />
             </div>
-            <h3 className="text-2xl font-bold text-primary mb-4 font-space">
+            <h3 className="text-2xl font-bold text-gradient mb-4 font-space">
               IA Pronta para Analisar
             </h3>
             <p className="text-muted-foreground max-w-md mx-auto">

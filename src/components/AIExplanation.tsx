@@ -21,10 +21,10 @@ export const AIExplanation = () => {
   ];
 
   return (
-    <Card className="shadow-card bg-gradient-card">
+    <Card className="shadow-elevated bg-gradient-card glass-effect">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2 font-space">
-          <Brain className="h-5 w-5 text-primary animate-ai-pulse" />
+        <CardTitle className="flex items-center gap-2 font-space text-gradient">
+          <Brain className="h-5 w-5 text-primary animate-glow-pulse" />
           Como Funciona Nossa IA
         </CardTitle>
       </CardHeader>
@@ -33,11 +33,11 @@ export const AIExplanation = () => {
           {features.map((feature, index) => (
             <div 
               key={feature.title}
-              className="text-center p-4 rounded-lg bg-background/50 hover:shadow-glow transition-all duration-300"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="text-center p-4 rounded-lg glass-effect hover:shadow-glow transition-all duration-500 hover:scale-105 animate-fade-in"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <feature.icon className="h-8 w-8 text-primary mx-auto mb-3" />
-              <h3 className="font-semibold text-sm mb-2 font-space">{feature.title}</h3>
+              <feature.icon className="h-8 w-8 text-primary mx-auto mb-3 animate-float" />
+              <h3 className="font-semibold text-sm mb-2 font-space text-foreground">{feature.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>

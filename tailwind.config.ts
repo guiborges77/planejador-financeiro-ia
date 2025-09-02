@@ -43,6 +43,10 @@ export default {
 					DEFAULT: 'hsl(var(--accent-ai))',
 					foreground: 'hsl(var(--accent-ai-foreground))'
 				},
+				'accent-neon': {
+					DEFAULT: 'hsl(var(--accent-neon))',
+					foreground: 'hsl(var(--accent-neon-foreground))'
+				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))'
@@ -81,15 +85,19 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-ai': 'var(--gradient-ai)',
+				'gradient-cyber': 'var(--gradient-cyber)',
 				'gradient-card': 'var(--gradient-card)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-neural': 'var(--gradient-neural)'
+				'gradient-neural': 'var(--gradient-neural)',
+				'gradient-neon': 'var(--gradient-neon)'
 			},
 			boxShadow: {
 				'card': 'var(--shadow-card)',
 				'elevated': 'var(--shadow-elevated)',
 				'glow': 'var(--shadow-glow)',
-				'ai-glow': 'var(--shadow-ai-glow)'
+				'ai-glow': 'var(--shadow-ai-glow)',
+				'neon': 'var(--shadow-neon)',
+				'inner': 'var(--shadow-inner)'
 			},
 			transitionDuration: {
 				'smooth': 'var(--transition-smooth)',
@@ -130,6 +138,21 @@ export default {
 					'0%': { backgroundPosition: '0% 50%' },
 					'50%': { backgroundPosition: '100% 50%' },
 					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'glow-pulse': {
+					'0%': { boxShadow: '0 0 5px hsl(var(--primary) / 0.5)' },
+					'50%': { boxShadow: '0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.4)' },
+					'100%': { boxShadow: '0 0 5px hsl(var(--primary) / 0.5)' }
+				},
+				'text-glow': {
+					'0%': { textShadow: '0 0 5px hsl(var(--primary) / 0.5)' },
+					'50%': { textShadow: '0 0 20px hsl(var(--primary) / 0.8)' },
+					'100%': { textShadow: '0 0 5px hsl(var(--primary) / 0.5)' }
+				},
+				'float': {
+					'0%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+					'100%': { transform: 'translateY(0px)' }
 				}
 			},
 			animation: {
@@ -139,7 +162,10 @@ export default {
 				'scale-in': 'scale-in 0.2s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
 				'ai-pulse': 'ai-pulse 2s infinite',
-				'neural-flow': 'neural-flow 3s ease-in-out infinite'
+				'neural-flow': 'neural-flow 3s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 2.5s ease-in-out infinite',
+				'text-glow': 'text-glow 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},

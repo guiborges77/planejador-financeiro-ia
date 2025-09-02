@@ -23,9 +23,9 @@ export const HeroSection = () => {
                 <span className="text-primary font-semibold">Planejamento com IA</span>
                 <Sparkles className="h-5 w-5 text-accent-ai" />
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight font-space">
                 Sua
-                <span className="block bg-gradient-ai bg-clip-text text-transparent">
+                <span className="block text-gradient animate-text-glow">
                   Aposentadoria
                 </span>
                 Inteligente
@@ -40,13 +40,14 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-ai hover:shadow-ai-glow transition-all duration-300 animate-ai-pulse"
+                variant="ai"
+                className="animate-float"
                 onClick={scrollToCalculator}
               >
                 <Bot className="h-5 w-5 mr-2" />
                 Iniciar Análise IA
               </Button>
-              <Button size="lg" variant="outline" className="hover:shadow-glow transition-all duration-300">
+              <Button size="lg" variant="outline" className="glass-effect hover:shadow-glow transition-all duration-300">
                 <Brain className="h-5 w-5 mr-2" />
                 Como Funciona
               </Button>

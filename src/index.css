@@ -8,64 +8,71 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Clean Dark Intelligence Theme */
-    --primary: 214 100% 75%; /* Soft Blue */
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 214 100% 85%;
-    --primary-dark: 214 100% 65%;
+    /* FIAP-Inspired Dark AI Theme */
+    --primary: 350 90% 60%; /* FIAP Pink/Red */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 350 90% 70%;
+    --primary-dark: 350 90% 45%;
     
-    --secondary: 220 15% 25%; /* Subtle Gray */
-    --secondary-foreground: 0 0% 98%;
-    --secondary-glow: 220 15% 35%;
+    --secondary: 280 70% 55%; /* Electric Purple */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 280 70% 65%;
     
-    --accent-ai: 45 100% 65%; /* Warm Gold */
-    --accent-ai-foreground: 0 0% 15%;
+    --accent-ai: 45 100% 65%; /* Cyber Gold */
+    --accent-ai-foreground: 0 0% 10%;
+    
+    --accent-neon: 160 100% 50%; /* Neon Green */
+    --accent-neon-foreground: 0 0% 10%;
     
     --success: 142 71% 45%;
-    --success-foreground: 0 0% 98%;
+    --success-foreground: 0 0% 100%;
     
     --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 98%;
+    --warning-foreground: 0 0% 100%;
     
-    /* UI Colors - Clean Dark */
-    --background: 222 47% 4%; /* Rich Dark */
-    --foreground: 0 0% 98%;
+    /* Elegant Dark UI Colors */
+    --background: 220 30% 3%; /* Deep Black */
+    --foreground: 0 0% 95%;
     
-    --card: 220 13% 9%; /* Clean Card */
-    --card-foreground: 0 0% 98%;
+    --card: 220 25% 6%; /* Dark Card */
+    --card-foreground: 0 0% 95%;
     
-    --muted: 220 13% 12%;
+    --muted: 220 20% 8%;
     --muted-foreground: 0 0% 65%;
     
-    --accent: 220 13% 15%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 220 20% 10%;
+    --accent-foreground: 0 0% 95%;
     
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 220 13% 18%;
-    --input: 220 13% 15%;
-    --ring: 214 100% 75%;
+    --border: 220 20% 12%;
+    --input: 220 20% 8%;
+    --ring: 350 90% 60%;
     
-    /* Clean Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(214 100% 75%), hsl(214 100% 85%));
-    --gradient-ai: linear-gradient(135deg, hsl(214 100% 75%), hsl(45 100% 65%));
-    --gradient-card: linear-gradient(145deg, hsl(220 13% 9%), hsl(220 13% 12%));
-    --gradient-hero: linear-gradient(135deg, hsl(214 100% 75% / 0.03), hsl(45 100% 65% / 0.02));
-    --gradient-neural: linear-gradient(45deg, hsl(214 100% 75% / 0.05), transparent, hsl(45 100% 65% / 0.03));
+    /* Futuristic Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(350 90% 60%), hsl(350 90% 70%));
+    --gradient-ai: linear-gradient(135deg, hsl(350 90% 60%), hsl(280 70% 55%));
+    --gradient-cyber: linear-gradient(135deg, hsl(280 70% 55%), hsl(45 100% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 6%), hsl(220 20% 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(350 90% 60% / 0.05), hsl(280 70% 55% / 0.03));
+    --gradient-neural: linear-gradient(45deg, hsl(350 90% 60% / 0.08), transparent, hsl(280 70% 55% / 0.05));
+    --gradient-neon: linear-gradient(90deg, hsl(350 90% 60%), hsl(280 70% 55%), hsl(160 100% 50%));
     
-    /* Clean Shadows */
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-elevated: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 20px hsl(214 100% 75% / 0.15);
-    --shadow-ai-glow: 0 0 25px hsl(45 100% 65% / 0.2);
+    /* Advanced Shadows */
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 30px -4px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 30px hsl(350 90% 60% / 0.3);
+    --shadow-ai-glow: 0 0 40px hsl(280 70% 55% / 0.4);
+    --shadow-neon: 0 0 20px hsl(160 100% 50% / 0.3);
+    --shadow-inner: inset 0 2px 4px hsl(0 0% 0% / 0.1);
     
-    /* Smooth Animations */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-ai: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --transition-hover: all 0.15s ease-out;
-    --transition-active: all 0.1s ease-in;
+    /* Smooth AI Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-ai: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-hover: all 0.2s ease-out;
+    --transition-active: all 0.15s ease-in;
 
     --radius: 0.75rem;
 
@@ -132,18 +139,48 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-inter;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(350 90% 60% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(280 70% 55% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(160 100% 50% / 0.03) 0%, transparent 50%);
   }
 
   input, textarea, select {
     @apply border-0 ring-0 focus:ring-0 focus:outline-none focus:border-0;
+    transition: var(--transition-smooth);
+  }
+
+  input:focus, textarea:focus, select:focus {
+    box-shadow: var(--shadow-glow);
   }
 
   .font-inter {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-optical-sizing: auto;
   }
 
   .font-space {
     font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    font-weight: 400 700;
+  }
+
+  /* Custom AI Elements */
+  .ai-border {
+    border: 1px solid;
+    border-image: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary))) 1;
+  }
+
+  .text-gradient {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
