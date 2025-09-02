@@ -8,57 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark AI Intelligence Theme */
-    --primary: 200 100% 70%; /* Bright Cyan */
-    --primary-foreground: 0 0% 0%;
-    --primary-glow: 200 100% 80%;
-    --primary-dark: 200 100% 50%;
+    /* Clean Dark Intelligence Theme */
+    --primary: 214 100% 75%; /* Soft Blue */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 214 100% 85%;
+    --primary-dark: 214 100% 65%;
     
-    --secondary: 270 95% 75%; /* Electric Purple */
-    --secondary-foreground: 0 0% 0%;
-    --secondary-glow: 270 95% 85%;
+    --secondary: 220 15% 25%; /* Subtle Gray */
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 220 15% 35%;
     
-    --accent-ai: 50 100% 75%; /* Electric Gold */
-    --accent-ai-foreground: 0 0% 0%;
+    --accent-ai: 45 100% 65%; /* Warm Gold */
+    --accent-ai-foreground: 0 0% 15%;
     
-    --success: 120 100% 60%;
-    --success-foreground: 0 0% 0%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
     
-    --warning: 40 100% 70%;
-    --warning-foreground: 0 0% 0%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
     
-    /* UI Colors - Dark Theme */
-    --background: 220 25% 8%; /* Deep Dark Blue */
-    --foreground: 0 0% 95%;
+    /* UI Colors - Clean Dark */
+    --background: 222 47% 4%; /* Rich Dark */
+    --foreground: 0 0% 98%;
     
-    --card: 220 20% 12%; /* Slightly lighter dark */
-    --card-foreground: 0 0% 95%;
+    --card: 220 13% 9%; /* Clean Card */
+    --card-foreground: 0 0% 98%;
     
-    --muted: 220 15% 15%;
+    --muted: 220 13% 12%;
     --muted-foreground: 0 0% 65%;
     
-    --accent: 220 20% 18%;
-    --accent-foreground: 0 0% 95%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 0 0% 98%;
     
-    --destructive: 0 75% 65%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
     
-    --border: 220 15% 20%;
-    --input: 220 15% 16%;
-    --ring: 200 100% 70%;
+    --border: 220 13% 18%;
+    --input: 220 13% 15%;
+    --ring: 214 100% 75%;
     
-    /* Dark AI Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 100% 70%), hsl(270 95% 75%));
-    --gradient-ai: linear-gradient(135deg, hsl(200 100% 70%), hsl(50 100% 75%), hsl(270 95% 75%));
-    --gradient-card: linear-gradient(145deg, hsl(220 20% 12%), hsl(220 15% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(200 100% 70% / 0.1), hsl(270 95% 75% / 0.1));
-    --gradient-neural: linear-gradient(45deg, hsl(200 100% 70% / 0.15), transparent, hsl(270 95% 75% / 0.15));
+    /* Clean Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 75%), hsl(214 100% 85%));
+    --gradient-ai: linear-gradient(135deg, hsl(214 100% 75%), hsl(45 100% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(220 13% 9%), hsl(220 13% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 100% 75% / 0.03), hsl(45 100% 65% / 0.02));
+    --gradient-neural: linear-gradient(45deg, hsl(214 100% 75% / 0.05), transparent, hsl(45 100% 65% / 0.03));
     
-    /* Dark AI Shadows */
-    --shadow-card: 0 4px 20px -2px hsl(200 100% 70% / 0.1), 0 2px 8px -1px hsl(270 95% 75% / 0.05);
-    --shadow-elevated: 0 20px 40px -10px hsl(200 100% 70% / 0.15), 0 10px 20px -5px hsl(270 95% 75% / 0.1);
-    --shadow-glow: 0 0 40px hsl(200 100% 70% / 0.3);
-    --shadow-ai-glow: 0 0 60px hsl(50 100% 75% / 0.4), 0 0 80px hsl(200 100% 70% / 0.3);
+    /* Clean Shadows */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 20px hsl(214 100% 75% / 0.15);
+    --shadow-ai-glow: 0 0 25px hsl(45 100% 65% / 0.2);
     
     /* AI Animations */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
