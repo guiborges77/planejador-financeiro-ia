@@ -110,10 +110,10 @@ export const RetirementCalculator = () => {
             <Input
               id="initial"
               type="number"
-              placeholder="0"
+              placeholder="R$ 5.000,00"
               value={inputs.initialAmount || ''}
               onChange={(e) => updateInput('initialAmount', Number(e.target.value))}
-              className="text-right h-11"
+              className="text-right h-11 transition-all duration-200 hover:border-primary/50 focus:border-primary focus:shadow-glow"
             />
           </div>
           
@@ -125,10 +125,10 @@ export const RetirementCalculator = () => {
             <Input
               id="monthly"
               type="number"
-              placeholder="1.000"
+              placeholder="R$ 1.500,00"
               value={inputs.monthlyContribution || ''}
               onChange={(e) => updateInput('monthlyContribution', Number(e.target.value))}
-              className="text-right h-11 border-primary/30"
+              className="text-right h-11 border-primary/30 transition-all duration-200 hover:border-primary/60 focus:border-primary focus:shadow-glow"
               required
             />
           </div>
@@ -141,10 +141,10 @@ export const RetirementCalculator = () => {
             <Input
               id="years"
               type="number"
-              placeholder="30"
+              placeholder="25 anos"
               value={inputs.years || ''}
               onChange={(e) => updateInput('years', Number(e.target.value))}
-              className="text-right h-11 border-primary/30"
+              className="text-right h-11 border-primary/30 transition-all duration-200 hover:border-primary/60 focus:border-primary focus:shadow-glow"
               required
             />
           </div>
@@ -158,10 +158,10 @@ export const RetirementCalculator = () => {
               id="interest"
               type="number"
               step="0.1"
-              placeholder="10.5"
+              placeholder="12,0%"
               value={inputs.annualInterestRate || ''}
               onChange={(e) => updateInput('annualInterestRate', Number(e.target.value))}
-              className="text-right h-11 border-primary/30"
+              className="text-right h-11 border-primary/30 transition-all duration-200 hover:border-primary/60 focus:border-primary focus:shadow-glow"
               required
             />
           </div>
@@ -175,10 +175,10 @@ export const RetirementCalculator = () => {
               id="inflation"
               type="number"
               step="0.1"
-              placeholder="4.5"
+              placeholder="4,5%"
               value={inputs.inflationRate || ''}
               onChange={(e) => updateInput('inflationRate', Number(e.target.value))}
-              className="text-right h-11"
+              className="text-right h-11 transition-all duration-200 hover:border-primary/50 focus:border-primary focus:shadow-glow"
             />
           </div>
           

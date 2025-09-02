@@ -60,10 +60,12 @@ All colors MUST be HSL.
     --shadow-glow: 0 0 20px hsl(214 100% 75% / 0.15);
     --shadow-ai-glow: 0 0 25px hsl(45 100% 65% / 0.2);
     
-    /* AI Animations */
+    /* Smooth Animations */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --transition-ai: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-hover: all 0.15s ease-out;
+    --transition-active: all 0.1s ease-in;
 
     --radius: 0.75rem;
 
