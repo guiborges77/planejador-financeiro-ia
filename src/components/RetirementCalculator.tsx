@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -76,13 +76,25 @@ export const RetirementCalculator = () => {
     setInputs(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleCalculate = () => {
+  const handleCalculate = useCallback(() => {
     if (inputs.monthlyContribution && inputs.years && inputs.annualInterestRate) {
       setHasCalculated(true);
     }
-  };
+  }, [inputs.monthlyContribution, inputs.years, inputs.annualInterestRate]);
 
   const isFormValid = inputs.monthlyContribution > 0 && inputs.years > 0 && inputs.annualInterestRate > 0;
+
+  // Handle Enter key press
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' && isFormValid) {
+        handleCalculate();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+    return () => document.removeEventListener('keydown', handleKeyPress);
+  }, [handleCalculate, isFormValid]);
 
   return (
     <div className="space-y-8">
