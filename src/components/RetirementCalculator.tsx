@@ -121,7 +121,7 @@ export const RetirementCalculator = () => {
             </Label>
             <Input
               id="initial"
-              type="number"
+              type="numeric"
               placeholder="R$ 5.000,00"
               value={inputs.initialAmount || ''}
               onChange={(e) => updateInput('initialAmount', Number(e.target.value))}
@@ -136,7 +136,7 @@ export const RetirementCalculator = () => {
             </Label>
             <Input
               id="monthly"
-              type="number"
+              type="numeric"
               placeholder="R$ 1.500,00"
               value={inputs.monthlyContribution || ''}
               onChange={(e) => updateInput('monthlyContribution', Number(e.target.value))}
@@ -152,7 +152,7 @@ export const RetirementCalculator = () => {
             </Label>
             <Input
               id="years"
-              type="number"
+              type="numeric"
               placeholder="25 anos"
               value={inputs.years || ''}
               onChange={(e) => updateInput('years', Number(e.target.value))}
@@ -168,7 +168,7 @@ export const RetirementCalculator = () => {
             </Label>
             <Input
               id="interest"
-              type="number"
+              type="numeric"
               step="0.1"
               placeholder="12,0%"
               value={inputs.annualInterestRate || ''}
@@ -185,7 +185,7 @@ export const RetirementCalculator = () => {
             </Label>
             <Input
               id="inflation"
-              type="number"
+              type="numeric"
               step="0.1"
               placeholder="4,5%"
               value={inputs.inflationRate || ''}
