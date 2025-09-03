@@ -1,13 +1,19 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Brain, Sparkles, Zap, Bot, TrendingUp } from 'lucide-react';
-import { RetirementChart } from './RetirementChart';
-import { RetirementTable } from './RetirementTable';
-import { RetirementSummary } from './RetirementSummary';
-import { AIExplanation } from './AIExplanation';
+import { useState, useMemo, useCallback, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Brain, Sparkles, Zap, Bot, TrendingUp } from "lucide-react";
+import { RetirementChart } from "./RetirementChart";
+import { RetirementTable } from "./RetirementTable";
+import { RetirementSummary } from "./RetirementSummary";
+import { AIExplanation } from "./AIExplanation";
 
 export interface RetirementData {
   month: number;
@@ -33,31 +39,37 @@ export const RetirementCalculator = () => {
     monthlyContribution: 0,
     years: 0,
     annualInterestRate: 0,
-    inflationRate: 0
+    inflationRate: 0,
   });
 
   const [hasCalculated, setHasCalculated] = useState(false);
 
   const calculationResults = useMemo(() => {
     // Only calculate if we have valid inputs and user has attempted calculation
-    if (!hasCalculated || !inputs.monthlyContribution || !inputs.years || !inputs.annualInterestRate) {
+    if (
+      !hasCalculated ||
+      !inputs.monthlyContribution ||
+      !inputs.years ||
+      !inputs.annualInterestRate
+    ) {
       return [];
     }
 
     const results: RetirementData[] = [];
     const monthlyRate = inputs.annualInterestRate / 100 / 12;
     const monthlyInflationRate = inputs.inflationRate / 100 / 12;
-    
+
     let currentBalance = inputs.initialAmount || 0;
     let totalContributions = inputs.initialAmount || 0;
-    
+
     for (let month = 1; month <= inputs.years * 12; month++) {
       const monthlyInterest = currentBalance * monthlyRate;
       currentBalance += monthlyInterest + inputs.monthlyContribution;
       totalContributions += inputs.monthlyContribution;
-      
-      const inflationAdjustedBalance = currentBalance / Math.pow(1 + monthlyInflationRate, month);
-      
+
+      const inflationAdjustedBalance =
+        currentBalance / Math.pow(1 + monthlyInflationRate, month);
+
       results.push({
         month,
         year: Math.ceil(month / 12),
@@ -65,35 +77,42 @@ export const RetirementCalculator = () => {
         monthlyInterest,
         totalContributions,
         totalBalance: currentBalance,
-        inflationAdjustedBalance
+        inflationAdjustedBalance,
       });
     }
-    
+
     return results;
   }, [inputs, hasCalculated]);
 
   const updateInput = (field: keyof CalculatorInputs, value: number) => {
-    setInputs(prev => ({ ...prev, [field]: value }));
+    setInputs((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleCalculate = useCallback(() => {
-    if (inputs.monthlyContribution && inputs.years && inputs.annualInterestRate) {
+    if (
+      inputs.monthlyContribution &&
+      inputs.years &&
+      inputs.annualInterestRate
+    ) {
       setHasCalculated(true);
     }
   }, [inputs.monthlyContribution, inputs.years, inputs.annualInterestRate]);
 
-  const isFormValid = inputs.monthlyContribution > 0 && inputs.years > 0 && inputs.annualInterestRate > 0;
+  const isFormValid =
+    inputs.monthlyContribution > 0 &&
+    inputs.years > 0 &&
+    inputs.annualInterestRate > 0;
 
   // Handle Enter key press
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === 'Enter' && isFormValid) {
+      if (event.key === "Enter" && isFormValid) {
         handleCalculate();
       }
     };
 
-    document.addEventListener('keydown', handleKeyPress);
-    return () => document.removeEventListener('keydown', handleKeyPress);
+    document.addEventListener("keydown", handleKeyPress);
+    return () => document.removeEventListener("keydown", handleKeyPress);
   }, [handleCalculate, isFormValid]);
 
   return (
@@ -115,7 +134,10 @@ export const RetirementCalculator = () => {
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="initial" className="flex items-center gap-2 text-sm font-medium">
+            <Label
+              htmlFor="initial"
+              className="flex items-center gap-2 text-sm font-medium"
+            >
               <Zap className="h-4 w-4 text-muted-foreground" />
               Aporte Inicial (R$)
             </Label>
@@ -123,15 +145,20 @@ export const RetirementCalculator = () => {
               id="initial"
               type="number"
               inputMode="numeric"
-              placeholder="R$ 5.000,00"
-              value={inputs.initialAmount || ''}
-              onChange={(e) => updateInput('initialAmount', Number(e.target.value))}
+              placeholder="Ex: R$ 5.000,00"
+              value={inputs.initialAmount || ""}
+              onChange={(e) =>
+                updateInput("initialAmount", Number(e.target.value))
+              }
               className="text-right h-11 transition-all duration-300 hover:border-primary/50 focus:border-primary focus:shadow-glow glass-effect"
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="monthly" className="flex items-center gap-2 text-primary font-semibold text-sm">
+            <Label
+              htmlFor="monthly"
+              className="flex items-center gap-2 text-primary font-semibold text-sm"
+            >
               <Bot className="h-4 w-4" />
               Aporte Mensal (R$) *
             </Label>
@@ -139,16 +166,21 @@ export const RetirementCalculator = () => {
               id="monthly"
               type="number"
               inputMode="numeric"
-              placeholder="R$ 1.500,00"
-              value={inputs.monthlyContribution || ''}
-              onChange={(e) => updateInput('monthlyContribution', Number(e.target.value))}
+              placeholder="Ex: R$ 1.500,00"
+              value={inputs.monthlyContribution || ""}
+              onChange={(e) =>
+                updateInput("monthlyContribution", Number(e.target.value))
+              }
               className="text-right h-11 border-primary/30 transition-all duration-300 hover:border-primary/60 focus:border-primary focus:shadow-glow glass-effect"
               required
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="years" className="flex items-center gap-2 text-primary font-semibold text-sm">
+            <Label
+              htmlFor="years"
+              className="flex items-center gap-2 text-primary font-semibold text-sm"
+            >
               <TrendingUp className="h-4 w-4" />
               Período (anos) *
             </Label>
@@ -156,16 +188,19 @@ export const RetirementCalculator = () => {
               id="years"
               type="number"
               inputMode="numeric"
-              placeholder="25 anos"
-              value={inputs.years || ''}
-              onChange={(e) => updateInput('years', Number(e.target.value))}
+              placeholder="Ex: 25 anos"
+              value={inputs.years || ""}
+              onChange={(e) => updateInput("years", Number(e.target.value))}
               className="text-right h-11 border-primary/30 transition-all duration-300 hover:border-primary/60 focus:border-primary focus:shadow-glow glass-effect"
               required
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="interest" className="flex items-center gap-2 text-primary font-semibold text-sm">
+            <Label
+              htmlFor="interest"
+              className="flex items-center gap-2 text-primary font-semibold text-sm"
+            >
               <Sparkles className="h-4 w-4" />
               Taxa de Juros (% a.a.) *
             </Label>
@@ -174,16 +209,21 @@ export const RetirementCalculator = () => {
               type="number"
               inputMode="numeric"
               step="0.1"
-              placeholder="12,0%"
-              value={inputs.annualInterestRate || ''}
-              onChange={(e) => updateInput('annualInterestRate', Number(e.target.value))}
+              placeholder="Ex: 12,0%"
+              value={inputs.annualInterestRate || ""}
+              onChange={(e) =>
+                updateInput("annualInterestRate", Number(e.target.value))
+              }
               className="text-right h-11 border-primary/30 transition-all duration-300 hover:border-primary/60 focus:border-primary focus:shadow-glow glass-effect"
               required
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="inflation" className="flex items-center gap-2 text-sm font-medium">
+            <Label
+              htmlFor="inflation"
+              className="flex items-center gap-2 text-sm font-medium"
+            >
               <Brain className="h-4 w-4 text-secondary" />
               Inflação (% a.a.)
             </Label>
@@ -192,26 +232,28 @@ export const RetirementCalculator = () => {
               type="number"
               inputMode="numeric"
               step="0.1"
-              placeholder="4,5%"
-              value={inputs.inflationRate || ''}
-              onChange={(e) => updateInput('inflationRate', Number(e.target.value))}
+              placeholder="Ex: 4,5%"
+              value={inputs.inflationRate || ""}
+              onChange={(e) =>
+                updateInput("inflationRate", Number(e.target.value))
+              }
               className="text-right h-11 transition-all duration-300 hover:border-primary/50 focus:border-primary focus:shadow-glow glass-effect"
             />
           </div>
-          
+
           <div className="flex items-end">
-            <Button 
+            <Button
               className={`w-full h-11 font-semibold transition-all duration-500 ${
-                isFormValid 
-                  ? 'bg-gradient-ai hover:shadow-ai-glow hover:scale-105 animate-glow-pulse font-space' 
-                  : 'bg-muted text-muted-foreground cursor-not-allowed'
+                isFormValid
+                  ? "bg-gradient-ai hover:shadow-ai-glow hover:scale-105 animate-glow-pulse font-space"
+                  : "bg-muted text-muted-foreground cursor-not-allowed"
               }`}
               variant={isFormValid ? "ai" : "ghost"}
               onClick={handleCalculate}
               disabled={!isFormValid}
             >
               <Bot className="h-4 w-4 mr-2" />
-              {hasCalculated ? 'Recalcular IA' : 'Analisar com IA'}
+              {hasCalculated ? "Recalcular IA" : "Analisar com IA"}
             </Button>
           </div>
         </CardContent>
@@ -225,9 +267,7 @@ export const RetirementCalculator = () => {
       </Card>
 
       {/* AI Explanation - Only show when no calculation has been made */}
-      {!hasCalculated && (
-        <AIExplanation />
-      )}
+      {!hasCalculated && <AIExplanation />}
 
       {/* Results - Only show if calculated */}
       {hasCalculated && calculationResults.length > 0 && (
@@ -275,7 +315,8 @@ export const RetirementCalculator = () => {
               IA Pronta para Analisar
             </h3>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Preencha os campos obrigatórios para análise completa do seu plano de aposentadoria.
+              Preencha os campos obrigatórios para análise completa do seu plano
+              de aposentadoria.
             </p>
           </CardContent>
         </Card>
