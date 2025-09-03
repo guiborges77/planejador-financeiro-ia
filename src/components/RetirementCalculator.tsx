@@ -222,7 +222,7 @@ export const RetirementCalculator = () => {
           <Card className="shadow-elevated animate-scale-in glass-effect">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 font-space text-gradient">
-                <TrendingUp className="h-5 w-5 text-secondary animate-glow-pulse" />
+                <TrendingUp className="h-5 w-5 text-secondary animate-glow-pulse icon-glow" />
                 Evolução Patrimonial
               </CardTitle>
             </CardHeader>
@@ -235,7 +235,7 @@ export const RetirementCalculator = () => {
           <Card className="shadow-elevated animate-slide-in-right glass-effect">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 font-space text-gradient">
-                <Brain className="h-5 w-5 text-primary animate-glow-pulse" />
+                <Brain className="h-5 w-5 text-primary animate-glow-pulse icon-glow" />
                 Análise Detalhada
               </CardTitle>
             </CardHeader>
@@ -251,8 +251,8 @@ export const RetirementCalculator = () => {
         <Card className="shadow-elevated bg-gradient-hero animate-fade-in glass-effect">
           <CardContent className="text-center py-12">
             <div className="relative mb-6">
-              <Brain className="h-16 w-16 text-primary mx-auto animate-float" />
-              <Sparkles className="h-6 w-6 text-accent-ai absolute top-0 right-1/2 transform translate-x-8 animate-glow-pulse" />
+              <Brain className="h-16 w-16 text-primary mx-auto animate-float icon-glow-lg" />
+              <Sparkles className="h-6 w-6 text-accent-ai absolute top-0 right-1/2 transform translate-x-8 animate-glow-pulse icon-glow" />
             </div>
             <h3 className="text-2xl font-bold text-gradient mb-4 font-space">
               IA Pronta para Analisar

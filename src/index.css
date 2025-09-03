@@ -183,4 +183,67 @@ All colors MUST be HSL.
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  /* Icon glow effects - transparent background, direct icon glow */
+  .icon-glow {
+    filter: drop-shadow(0 0 8px currentColor);
+    background: transparent !important;
+  }
+
+  .icon-glow-lg {
+    filter: drop-shadow(0 0 12px currentColor) drop-shadow(0 0 20px currentColor);
+    background: transparent !important;
+  }
+}
+
+@layer utilities {
+  /* Keyframe animations */
+  @keyframes glow-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 6px currentColor);
+      transform: scale(1);
+    }
+    50% {
+      filter: drop-shadow(0 0 12px currentColor) drop-shadow(0 0 20px currentColor);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes ai-pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px hsl(var(--primary) / 0.3);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 25px hsl(var(--primary) / 0.5), 0 0 35px hsl(var(--primary) / 0.3);
+      transform: scale(1.005);
+    }
+  }
+
+  @keyframes neural-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  /* Animation utilities */
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-ai-pulse {
+    animation: ai-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-neural-flow {
+    animation: neural-flow 8s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
 }
