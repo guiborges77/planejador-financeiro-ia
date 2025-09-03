@@ -19,9 +19,9 @@ export const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-4">
-                <Brain className="h-8 w-8 text-primary animate-ai-pulse" />
+                <Brain className="h-8 w-8 text-primary animate-ai-pulse icon-glow" />
                 <span className="text-primary font-semibold">Planejamento com IA</span>
-                <Sparkles className="h-5 w-5 text-accent-ai" />
+                <Sparkles className="h-5 w-5 text-accent-ai icon-glow" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight font-space">
                 Sua
