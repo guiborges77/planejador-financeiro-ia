@@ -32,8 +32,10 @@ export const RetirementTable = ({ data }: RetirementTableProps) => {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      {/* Header with responsive controls */}
+      <div className="space-y-3 sm:space-y-0">
+        {/* Info row */}
+        <div className="flex items-center gap-2 flex-wrap">
           <Badge variant="outline" className="text-xs">
             {showAllData ? 'Visão Anual' : 'Visão Mensal'}
           </Badge>
@@ -41,10 +43,25 @@ export const RetirementTable = ({ data }: RetirementTableProps) => {
             {showAllData ? `${displayData.length} anos` : `${displayData.length} de ${data.length} meses`}
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          {/* Pagination for monthly view */}
+        
+        {/* Controls row - responsive layout */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          {/* View toggle button - always visible */}
+          <div className="flex justify-center sm:justify-end sm:order-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleViewChange}
+              className="flex items-center gap-2 w-full sm:w-auto"
+            >
+              {showAllData ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              {showAllData ? 'Mostrar Mensal' : 'Mostrar Anual'}
+            </Button>
+          </div>
+          
+          {/* Pagination for monthly view - only when needed */}
           {!showAllData && totalPages > 1 && (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center justify-center gap-2 sm:order-1">
               <Button
                 variant="outline"
                 size="sm"
@@ -54,8 +71,8 @@ export const RetirementTable = ({ data }: RetirementTableProps) => {
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <span className="text-xs text-muted-foreground px-2">
-                {currentPage} de {totalPages}
+              <span className="text-xs text-muted-foreground px-2 whitespace-nowrap">
+                Página {currentPage} de {totalPages}
               </span>
               <Button
                 variant="outline"
@@ -68,57 +85,50 @@ export const RetirementTable = ({ data }: RetirementTableProps) => {
               </Button>
             </div>
           )}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleViewChange}
-            className="flex items-center gap-2"
-          >
-            {showAllData ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            {showAllData ? 'Mostrar Mensal' : 'Mostrar Anual'}
-          </Button>
         </div>
       </div>
 
-      <div className="rounded-lg border">
-        <Table>
-          <TableHeader>
-            <TableRow className="bg-muted/50">
-              <TableHead className="w-20">
-                {showAllData ? 'Ano' : 'Mês'}
-              </TableHead>
-              <TableHead className="text-right">Aporte</TableHead>
-              <TableHead className="text-right">Rendimento</TableHead>
-              <TableHead className="text-right">Total Investido</TableHead>
-              <TableHead className="text-right">Patrimônio</TableHead>
-              <TableHead className="text-right">Valor Real</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {displayData.map((row, index) => (
-              <TableRow key={index} className="hover:bg-muted/30">
-                <TableCell className="font-medium">
-                  {showAllData ? row.year : row.month}
-                </TableCell>
-                <TableCell className="text-right text-sm">
-                  {formatCurrency(row.monthlyContribution)}
-                </TableCell>
-                <TableCell className="text-right text-sm text-secondary">
-                  {formatCurrency(row.monthlyInterest)}
-                </TableCell>
-                <TableCell className="text-right text-sm">
-                  {formatCurrency(row.totalContributions)}
-                </TableCell>
-                <TableCell className="text-right font-medium text-primary">
-                  {formatCurrency(row.totalBalance)}
-                </TableCell>
-                <TableCell className="text-right text-sm text-muted-foreground">
-                  {formatCurrency(row.inflationAdjustedBalance)}
-                </TableCell>
+      <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-muted/50">
+                <TableHead className="w-16 min-w-16">
+                  {showAllData ? 'Ano' : 'Mês'}
+                </TableHead>
+                <TableHead className="text-right min-w-20">Aporte</TableHead>
+                <TableHead className="text-right min-w-24">Rendimento</TableHead>
+                <TableHead className="text-right min-w-24">Total Investido</TableHead>
+                <TableHead className="text-right min-w-24">Patrimônio</TableHead>
+                <TableHead className="text-right min-w-24">Valor Real</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {displayData.map((row, index) => (
+                <TableRow key={index} className="hover:bg-muted/30">
+                  <TableCell className="font-medium">
+                    {showAllData ? row.year : row.month}
+                  </TableCell>
+                  <TableCell className="text-right text-sm">
+                    {formatCurrency(row.monthlyContribution)}
+                  </TableCell>
+                  <TableCell className="text-right text-sm text-secondary">
+                    {formatCurrency(row.monthlyInterest)}
+                  </TableCell>
+                  <TableCell className="text-right text-sm">
+                    {formatCurrency(row.totalContributions)}
+                  </TableCell>
+                  <TableCell className="text-right font-medium text-primary">
+                    {formatCurrency(row.totalBalance)}
+                  </TableCell>
+                  <TableCell className="text-right text-sm text-muted-foreground">
+                    {formatCurrency(row.inflationAdjustedBalance)}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
 
       <div className="text-xs text-muted-foreground space-y-1">
